@@ -19,7 +19,7 @@ def test_has_title(page: Page):
     importance_set = {ImportanceFilterOption['MEDIUM']}
     list_page = CalendarListPage(page)
     list_page.set_importance_filter(importance_set)
-    page.screenshot(path="exp.png")
+    page.screenshot(path="exp1.png")
 
 
 
