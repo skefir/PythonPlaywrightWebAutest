@@ -1,8 +1,8 @@
 from playwright.sync_api import Page
 
-from data.ImportanceFilterOption import ImportanceFilterOption
-from elements.CalendarListElements import CalendarListElements
-from page.BasePage import BasePage
+from data.importance_filter_option import ImportanceFilterOption
+from elements.calendar_list_elements import CalendarListElements
+from page.base_page import BasePage
 
 
 class CalendarListPage(BasePage):

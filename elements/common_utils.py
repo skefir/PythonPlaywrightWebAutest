@@ -3,7 +3,7 @@ from rx import operators as ops, Observable
 import re
 from playwright.sync_api import Locator
 
-from data.OptionFilterable import OptionFilterable
+from data.option_filterable import OptionFilterable
 
 
 class CommonUtils:

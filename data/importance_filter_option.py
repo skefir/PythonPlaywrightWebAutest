@@ -1,6 +1,6 @@
 from enum import Enum
 
-from data.OptionFilterable import OptionFilterable
+from data.option_filterable import OptionFilterable
 
 
 class ImportanceFilterOption(OptionFilterable, Enum):

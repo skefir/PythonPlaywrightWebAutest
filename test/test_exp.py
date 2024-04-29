@@ -1,8 +1,8 @@
 import re
 from playwright.sync_api import Page, expect
 
-from data.ImportanceFilterOption import ImportanceFilterOption
-from page.CalendarListPage import CalendarListPage
+from data.importance_filter_option import ImportanceFilterOption
+from page.calendar_list_page import CalendarListPage
 
 
 # from data import ImportanceFilterOption

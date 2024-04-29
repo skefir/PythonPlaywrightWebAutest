@@ -1,6 +1,6 @@
 from playwright.sync_api import Locator, Page
 
-from elements.CommonUtils import CommonUtils
+from elements.common_utils import CommonUtils
 
 
 class CalendarListElements(CommonUtils):

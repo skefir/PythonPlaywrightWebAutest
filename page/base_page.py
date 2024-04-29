@@ -3,8 +3,8 @@ from rx import operators as ops, Observable
 import re
 from playwright.sync_api import Page, Locator
 
-from data.OptionFilterable import OptionFilterable
-from elements.CommonUtils import CommonUtils
+from data.option_filterable import OptionFilterable
+from elements.common_utils import CommonUtils
 
 
 class BasePage:
