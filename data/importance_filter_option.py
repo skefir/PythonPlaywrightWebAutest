@@ -3,7 +3,7 @@ from enum import Enum
 from data.option_filterable import OptionFilterable
 
 
-class ImportanceFilterOption(OptionFilterable, Enum):
+class ImportanceFilterOption(Enum):
     HOLIDAYS = OptionFilterable("Holidays")
     LOW = OptionFilterable("Low")
     MEDIUM = OptionFilterable("Medium")
