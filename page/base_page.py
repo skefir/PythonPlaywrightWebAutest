@@ -16,7 +16,7 @@ class BasePage:
         return self
 
     def is_option_contains(self, option_set: set[OptionFilterable], label_option: str):
-        return any(elem.get_title() == label_option or elem.get_alt_title() == label_option for elem in option_set)
+        return any(print("{} = {} or {} res = {}".format(label_option, elem.get_title(), elem.get_alt_title(), elem.get_title() == label_option.strip() or elem.get_alt_title() == label_option)) or (elem.get_title() == label_option or elem.get_alt_title() == label_option) for elem in option_set)
 
     def set_filter_option(self, filter_option_element: Locator):
         self.element_helper.get_filter_option_label(filter_option_element).click()

@@ -1,10 +1,9 @@
-class OptionFilterable:
+from enum import Enum
 
-    def __init__(self, title: str):
-        self.title = title
+
+class OptionFilterable(Enum):
     def get_title(self):
-        return self.title
+        return self.value
 
     def get_alt_title(self):
-        return self.title
-
+        return f"{self.name} - {self.value}"

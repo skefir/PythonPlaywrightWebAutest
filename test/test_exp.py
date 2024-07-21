@@ -2,6 +2,7 @@ import re
 from playwright.sync_api import Page, expect
 
 from data.importance_filter_option import ImportanceFilterOption
+from data.currencies import Currencies
 from page.calendar_list_page import CalendarListPage
 import pytest
 import time
@@ -20,10 +21,11 @@ def test_has_title(page: Page):
 
     page.goto("https://www.mql5.com/en/economic-calendar")
 
-    importance_set = {ImportanceFilterOption['MEDIUM'].value}
+    importance_set = {ImportanceFilterOption.MEDIUM}
+    currency_set = {Currencies.CHF}
     list_page = CalendarListPage(page)
-    list_page.set_importance_filter(importance_set)
-    # time.sleep(10)
+    list_page.set_importance_filter(importance_set).set_currencies_filter(currency_set)
+    time.sleep(10)
     page.screenshot(path="exp3.png")
 
 
