@@ -18,3 +18,6 @@ class CalendarListElements(CommonUtils):
 
     def get_importance_filter(self) -> Locator:
         return self.get_filter_area().locator("ul#economicCalendarFilterImportance")
+
+    def get_date_filter(self) -> Locator:
+        return self.get_filter_area().locator("ul#economicCalendarFilterDate")
