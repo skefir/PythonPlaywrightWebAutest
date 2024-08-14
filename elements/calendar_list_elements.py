@@ -21,3 +21,9 @@ class CalendarListElements(CommonUtils):
 
     def get_date_filter(self) -> Locator:
         return self.get_filter_area().locator("ul#economicCalendarFilterDate")
+
+    def get_main_table(self) -> Locator:
+        return self.get_calendar_root().locator("xpath=.//div[@class='ec-table' and .//div[@id='economicCalendarTable']]")
+
+    # fun getMainTable(): Locator =
+    # getCalendarRoot().locator("xpath=.//div[@class='ec-table' and .//div[@id='economicCalendarTable']]")
