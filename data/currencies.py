@@ -1,5 +1,3 @@
-from enum import Enum
-
 from data.option_filterable import OptionFilterable
 
 
