@@ -11,7 +11,7 @@ import pytest
 import time
 
 
-@pytest.mark.browser_context_args(timezone_id="Europe/Berlin", locale="en-GB", )
+
 @allure.title("Test event calendar")
 def test_has_title(page: Page):
     page.goto("https://www.mql5.com/en/economic-calendar")
@@ -39,3 +39,4 @@ def test_get_started_link(page: Page):
     # Expects page to have a heading with the name of Installation.
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
 
+#
