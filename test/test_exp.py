@@ -3,9 +3,11 @@ import re
 import allure
 from playwright.sync_api import Page, expect
 
+from data.calendar_event_info_tab import CalendarEventInfoTab
 from data.date_filter_option import DateFilterOption
 from data.importance_filter_option import ImportanceFilterOption
 from data.currencies import Currencies
+from page.calendar_event_info import CalendarEventInfoPage
 from page.calendar_list_page import CalendarListPage
 import pytest
 import time
@@ -18,12 +20,14 @@ def test_has_title(page: Page):
 
     calendar_option = DateFilterOption.NEXT_MONTH
     importance_set = {ImportanceFilterOption.MEDIUM}
-    currency_set = {Currencies.CHF}
+    currency_set = {Currencies.AUD}
     list_page = CalendarListPage(page)
     (list_page.set_date_filter(calendar_option)
      .set_importance_filter(importance_set)
      .set_currencies_filter(currency_set)
      .enter_to_event_by_number(1))
+    event_page = CalendarEventInfoPage(page)
+    event_page.goto_tab(CalendarEventInfoTab.HISTORY)
 
     time.sleep(10)
     page.screenshot(path="exp3.png")

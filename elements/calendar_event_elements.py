@@ -8,7 +8,7 @@ class CalendarEventElements(CommonUtils):
         self.page = _page
 
     def get_event_root(self) -> Locator:
-        return self.page.locator("#calendarContainer")
+        return self.page.locator("#eventContentPanel")
 
     def get_event_currency(self) -> Locator:
         return self.get_event_root().locator(".economic-calendar__event-header-currency")
