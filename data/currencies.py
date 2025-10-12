@@ -20,3 +20,9 @@ class Currencies(OptionFilterable):
     SGD = "Singapore dollar"
     USD = "US dollar"
     ZAR = "South African rand"
+
+    def get_title(self):
+        return f"{self.name} - {self.value}"
+
+    def get_alt_title(self):
+        return f"{self.name}, {self.value}"

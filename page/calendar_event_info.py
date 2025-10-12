@@ -24,4 +24,4 @@ class CalendarEventInfoPage(BasePage):
         return self
 
     def check_currency(self, currencies_set: set[Currencies] ):
-        assert self.is_option_contains(currencies_set, self.element_helper.get_event_currency())
+        assert self.is_option_contains(currencies_set, self.element_helper.get_event_currency().text_content())
