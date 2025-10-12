@@ -27,7 +27,7 @@ class DataTable:
         return [loc_head.nth(l) for l in range(loc_head.count())]
 
     def get_row_by_number(self, row_number: int) -> Locator:
-        return self.__get_rows().nth(row_number)
+        return self.__get_rows().nth(row_number-1)
 
     def __get_rows(self) -> Locator:
         return self.root_element.locator(f"div.{self.classPrefix}__item")
