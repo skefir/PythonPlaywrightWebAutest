@@ -32,11 +32,17 @@ class CalendarEventInfoPage(BasePage):
     def check_currency(self, currencies_set: set[Currencies]):
         assert self.is_option_contains(currencies_set, self.element_helper.get_event_currency().text_content())
 
-    allure.step("Проверяем что событие попадает в заданный интервал дат {0}")
+    @allure.step("Проверяем что событие попадает в заданный интервал дат {0}")
+    def print_history_to_log(self):
+        self.element_helper.event_history_table.get_row_stream().subscribe(on_next=lambda rw: print(f"row = {rw} content = {rw[1].text_content()}"))
 
+    @allure.step("Проверяем что событие попадает в заданный интервал дат {0}")
     def check_date(self, date_filter_option: DateFilterOption):
+        self.page.wait_for_load_state(state='networkidle', timeout=5000)
+        print(f"event_date_loc = {self.element_helper.get_event_date()}")
+        print(f"event_date_str = {self.element_helper.get_event_date().text_content()}")
         event_date = convert_str_to_datetime(self.element_helper.get_event_date().text_content())
-        # local_tz = pytz.timezone('Europe/Moscow')
+        print(f"event_date = {event_date}")
         system_tz = tz.gettz()
         start_date_check = datetime.combine(date_filter_option.begin_period - timedelta(days=1),
                                             MIDNIGHT_TIME).astimezone(system_tz)
@@ -48,3 +54,4 @@ class CalendarEventInfoPage(BasePage):
             f"Дата события {event_date} должна находиться в периоде {date_filter_option}. "
             f"Проверяемый диапазон: ({start_date_check} - {finish_date_check})"
         )
+

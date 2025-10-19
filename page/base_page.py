@@ -1,6 +1,3 @@
-import rx
-from rx import operators as ops, Observable
-import re
 from playwright.sync_api import Page, Locator
 
 from data.option_filterable import OptionFilterable

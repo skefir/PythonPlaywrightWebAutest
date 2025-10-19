@@ -31,6 +31,7 @@ def test_firtering_events(page: Page):
     event_page.check_importance(importance_set)
     event_page.check_currency(currency_set)
     event_page.check_date(calendar_option)
+    event_page.print_history_to_log()
     time.sleep(10)
     page.screenshot(path="exp3.png")
 

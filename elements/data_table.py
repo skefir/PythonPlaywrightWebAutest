@@ -1,8 +1,11 @@
 from functools import cached_property
 
+
 from playwright.sync_api import Locator
+from reactivex import operators as ops, Observable
 
 from data.data_table_column import DataTableColumn
+from elements.common_utils import CommonUtils
 
 
 class DataTable:
@@ -11,6 +14,7 @@ class DataTable:
         self.classPrefix = classPrefix
         self.columns = column_set
         self.root_element = root_element
+        self.element_helper = CommonUtils()
 
     @cached_property
     def calculate_column_numbers(self) -> dict[str, int]:
@@ -34,3 +38,12 @@ class DataTable:
 
     def get_column(self, row_element: Locator, column: DataTableColumn) -> Locator:
         return row_element.locator(f"div[class*='{self.classPrefix}__']:nth-child({self.get_column_number(column)})")
+
+    def get_botom_area(self) -> Locator:
+        return self.root_element.locator("div[class*='table__bottom']")
+
+    def get_row_stream(self) -> Observable:
+        pages_collection = self.get_botom_area().locator("a")
+        if pages_collection.count() < 1:
+            pages_collection = self.get_botom_area()
+        return self.element_helper.to_observe(pages_collection).pipe(ops.flat_map_latest(lambda pg: pg[1].click() or self.element_helper.to_observe(self.__get_rows())))

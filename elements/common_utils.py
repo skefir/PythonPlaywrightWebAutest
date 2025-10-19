@@ -1,6 +1,6 @@
-import rx
-from rx import operators as ops, Observable
-import re
+import reactivex as rx
+from reactivex import operators as ops, Observable
+
 from playwright.sync_api import Locator
 
 from data.option_filterable import OptionFilterable
