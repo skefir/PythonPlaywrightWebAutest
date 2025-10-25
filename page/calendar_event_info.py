@@ -34,7 +34,9 @@ class CalendarEventInfoPage(BasePage):
 
     @allure.step("Проверяем что событие попадает в заданный интервал дат {0}")
     def print_history_to_log(self):
-        self.element_helper.event_history_table.get_row_stream().subscribe(on_next=lambda rw: print(f"row = {rw} content = {rw[1].text_content()}"))
+        self.element_helper.event_history_table.get_row_stream().subscribe(on_next=lambda rw: print(f"row = {rw}"))
+        # content = {rw.text_content()}
+        # content = {rw[1].text_content()}
 
     @allure.step("Проверяем что событие попадает в заданный интервал дат {0}")
     def check_date(self, date_filter_option: DateFilterOption):
